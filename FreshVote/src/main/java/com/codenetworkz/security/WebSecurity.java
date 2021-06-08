@@ -45,6 +45,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 			
 			.authorizeRequests()
 			.antMatchers("/", "/dashboardfile/**", "/register", "/forgot-password").permitAll()
+			.antMatchers("/admin**").hasRole("ADMIN")
 			.anyRequest().hasRole("USER").and()
 			.formLogin()
 				.loginPage("/login").permitAll()
