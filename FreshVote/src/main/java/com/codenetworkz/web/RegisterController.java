@@ -31,6 +31,17 @@ public class RegisterController {
 		return "register";
 	}
 	
+	/* this is a method is used to save user and get data from 
+	 * user and send to database in that this 
+	 * web need to save password in encoded format 
+	 * but user is used text format password  
+	 * that password not save in same way 
+	 * if that happen if database hacked the password is read and login the properly 
+	 * that way we need to save password encoded format 
+	 * same way every user has access same privileges to USER/ADMIN AND SUPERUSER
+	 * to create the role on specific permission  
+	 */
+		
 	@PostMapping("/register")
 	public String register( User user ) {
 	

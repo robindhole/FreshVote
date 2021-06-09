@@ -35,9 +35,7 @@ public class CommentId implements Serializable{
 		this.feature = feature;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	} 
+
 	
 	
 	

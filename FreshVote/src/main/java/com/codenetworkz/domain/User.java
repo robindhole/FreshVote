@@ -26,9 +26,11 @@ public class User {
 	
 	private String password;
 
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "user" )
+	private Set<Product> product=new HashSet<>();
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user" )
 	private Set<Authority> authorities=new HashSet<>();
-	
 	public Long getId() {
 		return id;
 	}
@@ -60,7 +62,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public Set<Authority> getAuthorities() {
 		return authorities;
 	}
@@ -68,13 +70,23 @@ public class User {
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
+	
+	
+	public Set<Product> getProduct() {
+		return product;
+	}
+
+	public void setProduct(Set<Product> product) {
+		this.product = product;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password
-				+ ", authorities=" + authorities + "]";
+		return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", product="
+				+ product + ", authorities=" + authorities + "]";
 	}
-	
+
+
 	
 	
 }
